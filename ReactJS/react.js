@@ -10,8 +10,5 @@
 
 
 */
-console.log(convertNumber('',10))
 
-function convertNumber(str, num){
-    return `${num}`
-}
+
