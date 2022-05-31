@@ -1,13 +1,18 @@
 /*
-    -React is all about components
+    - React is all about components
     - What to do! not how to do.!
 
-    SPA - Single Page Applications - (single html page & rest controlled by React.js library)
+    - SPA - Single Page Applications - (single html page & rest controlled by React.js library)
 
     - Uses Virtual DOM
 
-    - CDN - Content Delivery Network
+    - CDN - Content Delivery Network - is majorly used for file fetching purpose (dumb server)
 
+    - npm - Node Package Manager
+    - npx - Node Package Executable
+
+    - create-react-app
+    - npm run start
 
 */
 
