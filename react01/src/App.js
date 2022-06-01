@@ -1,25 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+       Welcome To REACT.!!
     </div>
   );
 }
 
 export default App;
+
+/*
+  Types of Components in React:
+    - Class Based Components
+    - Function Based Components
+  
+  - Components can be considered as sub-sections inside the entire application
+  - Components return JSX (JavaScript + XML)
+  - Components can be nested
+  - Components can be re-used
+  - Components name should follow PascalCase naming convention
+
+*/
+  

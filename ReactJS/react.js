@@ -1,5 +1,5 @@
 /*
-    - React is all about components
+    - React is all about components (each and everything is a component)
     - What to do! not how to do.!
 
     - SPA - Single Page Applications - (single html page & rest controlled by React.js library)
@@ -14,6 +14,13 @@
     - create-react-app
     - npm run start
 
+    //-------------------------------->>
+
+    App.js is base component
+
 */
+
+
+
 
 
