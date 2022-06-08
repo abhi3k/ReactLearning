@@ -1,5 +1,5 @@
 import './App.css';
-import Child1 from './components/ChildComponent1'
+import Child1 from './components/ChildComponent1/ChildComponent1'
 import { ChildComponent2,ChildComponent3 } from './components/ChildComponent2'
 import Child5 from './components/ChildComponent4'
 
