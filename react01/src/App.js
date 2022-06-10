@@ -6,16 +6,16 @@ import Child5 from './components/ChildComponent4'
 const App = () => {
   return (
     <>
-      <div className="App">
+      {/* <div className="App">
         Welcome To REACT.!!
         <br/>
         Learning is good.!
-      </div>
-      <div className="App">React is awesome.!</div>
+      </div> */}
+      {/* <div className="App">React is awesome.!</div> */}
       <Child1 />
-      <ChildComponent2 />
-      <ChildComponent3 />
-      <Child5 />
+        <ChildComponent2 />
+        <ChildComponent3 />
+        <Child5 />
     </>
   );
 }
@@ -35,6 +35,15 @@ export default App;
   - Components name should follow PascalCase naming convention
 
 # Fragmemts (<> </>) - empty JSX tags for enclosing purpose (used for nesting multiple element inside a single parent to be returned by a component)
+//------------------------------------------------------//
+- React folloe 'One-way binding' (from parent to child)
+A component re-renders whenever there is a change in : 
+1. props : 
+    - can be assumed like (parameters of a function) , in the case of function based components only
+
+2. state
+
+
 
 
 

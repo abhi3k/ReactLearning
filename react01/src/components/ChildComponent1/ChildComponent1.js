@@ -9,8 +9,8 @@ const ChildComponent1 = () => {
             className="ChildComponent1"
         >
             <h1>Child Component 1</h1>
-            <Gc1 />
-            <Gc1 />
+            <Gc1 heading="head1" description="red is in the description"/>
+            <Gc1 heading="not a heading"/>
         </div>
     )
 }
