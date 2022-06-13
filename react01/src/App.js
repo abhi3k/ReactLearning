@@ -12,7 +12,7 @@ const App = () => {
         Learning is good.!
       </div> */}
       {/* <div className="App">React is awesome.!</div> */}
-      <Child1 />
+        <Child1 />
         <ChildComponent2 />
         <ChildComponent3 />
         <Child5 />

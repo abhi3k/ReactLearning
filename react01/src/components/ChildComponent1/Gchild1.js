@@ -1,11 +1,12 @@
 import React from 'react'
 
-const Gchild1 = ({ heading, description, backgroundColor }) => {
+const Gchild1 = ({ heading, description, bgColor, color }) => {
     // let grandChildStyle = { backgroundColor : 'grey'}
     return (
         // <div className="Gchild1" style={grandChildStyle}>
-        <div className="Gchild1">
-            <h5 style={{backgroundColor:"backgroundColor"}}>{heading}</h5>
+        // if props name is same as the html attribute name, then it can be passed directly within the style, else standard syntax should written to access the prop responsible
+        <div className="Gchild1" style={{backgroundColor:bgColor, color}}>
+            <h5>{heading}</h5>
             {description && <p>Description goes here -- {description}</p>}
         </div>
     )
