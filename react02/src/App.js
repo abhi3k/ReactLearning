@@ -1,7 +1,8 @@
 import './App.css';
 // import Hello from './component/Hello'
 // import HelloClass from './component/HelloClass'
-import  Counter from './component/Counter'
+// import  Counter from './component/Counter'
+import RenderUsingLoop from './component/RenderUsingLoop'
 
 function App() {
   return (
@@ -10,7 +11,8 @@ function App() {
       <Hello student1="Abhishek" />
       <HelloClass student1="Some" student2="Sunil"/>
       <HelloClass student1="Some1" /> */}
-      <Counter />
+      {/* <Counter /> */}
+      <RenderUsingLoop />
     </div>
   );
 }
