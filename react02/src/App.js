@@ -1,8 +1,12 @@
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 // import Hello from './component/Hello'
 // import HelloClass from './component/HelloClass'
 // import  Counter from './component/Counter'
-import RenderUsingLoop from './component/RenderUsingLoop'
+// import CC from './component/ChildCounter'
+// import RenderUsingLoop from './component/RenderUsingLoop'
+// import Bulb from './component/Bulb'
+import Boot from './component/Bootstrap'
 
 function App() {
   return (
@@ -11,8 +15,11 @@ function App() {
       <Hello student1="Abhishek" />
       <HelloClass student1="Some" student2="Sunil"/>
       <HelloClass student1="Some1" /> */}
-      {/* <Counter /> */}
-      <RenderUsingLoop />
+      {/* <Counter />
+      <CC /> */}
+      {/* <RenderUsingLoop /> */}
+      {/* <Bulb /> */}
+      <Boot />
     </div>
   );
 }

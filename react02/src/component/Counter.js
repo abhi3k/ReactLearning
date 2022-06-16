@@ -55,7 +55,7 @@ class Counter extends Component {
                 >
                     Increase the Number by 5
                 </button>
-                <ChildCounter />
+                <ChildCounter number={number}/>
             </div>
         )
     }

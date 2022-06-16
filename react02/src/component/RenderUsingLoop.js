@@ -39,7 +39,7 @@ class RenderUsingLoop extends Component {
         return (
             <>
             {
-                students.map(student => (
+                students.map((student, index) => (
                     <div style={{
                             display:'flex',
                             justifyContent:'space-around',
@@ -47,6 +47,7 @@ class RenderUsingLoop extends Component {
                             margin:'10px',
                             padding:'5px',
                         }}
+                        key={index}
                     >
                         <h1>{student.name}</h1>
                         <h1>{student.batch}</h1>

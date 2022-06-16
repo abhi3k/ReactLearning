@@ -1,14 +1,9 @@
-import React,{ Component } from 'react'
+import React from 'react'
 
-class ChildCounter extends Component {
-    // constructor(props) {
-    //     super(props)
-    // }
-    render () {
-        return (
-            <div>Child Counter</div>
-        )
-    }
+const ChildCounter = ({ number }) => {
+    return (
+        <h1>{number}</h1>
+    )
 }
 
 export default ChildCounter
