@@ -95,8 +95,8 @@ class Products extends Component {
                 <Container>
                     <Row>
                         {
-                            product.map(product => (
-                                <Col md={3} xs={12} style={{ margin: "10px 0px" }}>
+                            product.map((product, index) => (
+                                <Col md={3} xs={12} style={{ margin: "10px 0px" }} key={index}>
                                     <Card style={{ width: '100%' }}>
                                         <Card.Img variant="top" src={product.image} height='250' width='200' />
                                         <Card.Body>
