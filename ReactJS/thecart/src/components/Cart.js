@@ -99,12 +99,12 @@ class Cart extends Component {
         }
     }
 
-    removeFromCart = (cartItemID) => {
-        let updatedCartItems = this.state.cartItems.map(cartItems => {
-            if(cartItems.id === cartItemID){
-                cartItems.inCart = false
+    removeFromCart = (itemId) => {
+        let updatedCartItems = this.state.cartItems.map(item => {
+            if(item.id === itemId){
+                item.inCart = false
             }
-            return cartItems
+            return item
         })
         this.setState({
             cartItems: updatedCartItems
@@ -114,22 +114,24 @@ class Cart extends Component {
     render() {
         const { cartItems } = this.state
         return (
-            <div className="cart-outer">
-                <h1>Cart Items {cartItems.filter(items => items.inCart).length}</h1>
+            <div className="cart-outer" >
+                <h1>Cart [{cartItems.filter(items => items.inCart).length} items]</h1>
                 {
-                    cartItems.filter(item => item.inCart).map(item => (
-                        <div className="cart-item" key={item.id}>
-                            <img className="cart-item-image" src={item.image} alt="product" />
+                    cartItems.filter(item => item.inCart).map(items => (
+                        <div className="cart-items" key={items.id}>
+                            <img className="cart-item-image" src={items.image} alt="Product" />
                             <div className="cart-item-details">
-                                <h4>{item.title}</h4>
-                                <h5>${item.price}</h5>
-                                <button className="remove-from-cart-btn" onClick={() => this.removeFromCart(item.id)}>Remove from cart</button>
+                                <h4>{items.title}</h4>
+                                <h5>${items.price}</h5>
+                                <button className="cart-item-btn" onClick={() => this.removeFromCart(items.id)}>Remove from Cart</button>
                             </div>
                         </div>
-                    ))}
+                    ))
+                }
             </div>
         )
     }
+
 }
 
 export default Cart
