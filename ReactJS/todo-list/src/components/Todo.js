@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './Todo.css'
 import { Container, Form, Col, Row, InputGroup, Button, ListGroup } from 'react-bootstrap'
 import { FaEdit } from 'react-icons/fa'
 import { MdDeleteOutline, MdOutlineAddBox } from 'react-icons/md'
@@ -8,38 +9,47 @@ class Todo extends Component {
         super(props)
 
         this.state = {
-            toDoList: ['revise JavaScript', 'asynchronousJS', 'practice array methods', 'revise react state']
+            inputToDo: '',
+            toDoList: [
+                'revise JavaScript',
+                'asynchronousJS',
+                'practice array methods',
+                'revise react state'
+            ]
         }
     }
 
     render() {
-        const { toDoList } = this.state
+        const { inputToDo, toDoList } = this.state
         return (
-            <Container>
-                <Col md={{ span: 4, offser: 4 }}>
+            <Container style={{ margin: "20px auto" }}>
+                <Col md={{ span: 4, offset: 4 }}>
                     <InputGroup className="mb-3">
-                        <Form.Control size="lg" type="text" placeholder="Large Text"></Form.Control>
-                        <Button variant="outline-secondary" id="btn-1"><MdOutlineAddBox/></Button>
+                        <Form.Control size="lg" type="text" value={inputToDo} placeholder="Enter To-Do" onChange={event => this.setState({ inputToDo: event.target.value })}></Form.Control>
+                        <Button
+                            variant="outline-secondary" id="btn-1"
+                            onClick={() =>
+                                this.setState(prevState => ({
+                                     toDoList: [...prevState.toDoList, inputToDo]
+                                    }))
+                                }><MdOutlineAddBox /></Button>
                     </InputGroup>
-                    <ListGroup>
+                    <ListGroup className="to-do-list">
                         {
-                            // toDoList.
+                            toDoList.map((job, index) => (
+                                <ListGroup.Item key={index}>
+                                    <Row>
+                                        <Col md={9}>
+                                            {job}
+                                        </Col>
+                                        <Col md={3} className="action-btn">
+                                            <Button variant="warning" size="sm"><FaEdit /></Button>
+                                            <Button variant="danger" size="sm"><MdDeleteOutline /></Button>
+                                        </Col>
+                                    </Row>
+                                </ListGroup.Item>
+                            ))
                         }
-                        <ListGroup.Item>
-                            <Row>
-                                <Col ms={9}>
-                                    Details are here
-                                </Col>
-                                <Col ms={3}>
-                                    <Button variant="warning"><FaEdit /></Button>
-                                    <Button variant="danger"><MdDeleteOutline /></Button>
-                                </Col>
-                            </Row>
-                        </ListGroup.Item>
-                        <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-                        <ListGroup.Item>Morbi leo risus</ListGroup.Item>
-                        <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
-                        <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
                     </ListGroup>
                 </Col>
             </Container>
