@@ -2,7 +2,29 @@
     text-align: left;
 }
 
+.to-do-list {
+    border: 0.5px solid #2125293f;
+}
+
+.input-to-do:focus{
+    box-shadow: none;
+    border: 1px solid #2125294f;
+}
+
+.action-btn .btn {
+    border-radius: 20px;
+}
+
+.input-to-do-btn:focus{
+    box-shadow: none;
+}
+
 .action-btn {
     display: flex;
     justify-content: space-around;
+    padding: 0px;
+}
+
+.completed {
+    text-decoration: line-through;
 }
