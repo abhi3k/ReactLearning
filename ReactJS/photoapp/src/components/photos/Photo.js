@@ -32,8 +32,9 @@ const Photo = () => {
                                     <Card>
                                         <Card.Header>{photo.author}</Card.Header>
                                         <Card.Img variant="top" src={photo.download_url} className="photo-img" />
-                                        <Card.Body>
+                                        <Card.Body className="outer-btn">
                                             <a className="btn btn-dark" href={photo.url}>View Source</a>
+                                            <a className="btn btn-dark" href={photo.download_url}>View Original</a>
                                         </Card.Body>
                                     </Card>
                                 </Col>
