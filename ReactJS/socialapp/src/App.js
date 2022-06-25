@@ -3,6 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import About from './components/about/About'
 import Post from './components/posts/Post'
 import Nbar from './components/Navbar'
+import Contact from './components/Contact'
+import Signup from './components/signup/Signup'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 function App() {
@@ -13,6 +15,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Post />}></Route>
           <Route path="/about" element={<About />}></Route>
+          <Route path="/contact" element={<Contact/>}></Route>
+          <Route path="/signup" element={<Signup/>}></Route>
         </Routes>
       </div>
     </BrowserRouter>
