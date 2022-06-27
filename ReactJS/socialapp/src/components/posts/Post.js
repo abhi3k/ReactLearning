@@ -1,6 +1,6 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
-import { Container, Row, Col, Card, Spinner, Badge, Button } from 'react-bootstrap'
+import { Row, Col, Card, Spinner, Badge, Button } from 'react-bootstrap'
 import { AiOutlineLike } from 'react-icons/ai'
 import { FaRegComment, FaUserCircle } from 'react-icons/fa'
 import axios from 'axios'
@@ -8,55 +8,78 @@ import './Post.css'
 import dummyPostText from "../../assets/dummyPostText.json"
 import dummyPostTime from "../../assets/dummyPostTime.json"
 
-const Photo = () => {
+const Post = () => {
 
-    const [pic, setPic] = useState([])
+    const [post, setPost] = useState([])
 
     useEffect(() => {
-        const getPhotos = async () => {
+        const getPosts = async () => {
             try {
                 const res = await axios.get("https://picsum.photos/v2/list")
-                setPic(res.data)
+                let resPost = [...res.data]
+                let postWithAdditionalDetails = resPost.map(post => {
+                    let likeCount = Math.ceil(Math.random()*1000)
+                    let commentCount = Math.ceil(Math.random()*25)
+                    let text = dummyPostTime[Math.ceil(Math.random()*5)]
+                    let time = dummyPostText[Math.ceil(Math.random()*3)]
+                    return {
+                        ...post,
+                        likeCount,
+                        commentCount,
+                        text,
+                        time
+                    }
+                })
+                setPost(postWithAdditionalDetails)
             } catch (err) {
                 console.log(err)
             }
         }
-        getPhotos()
+        getPosts()
     }, [])
 
+    const toggleLikeCount = (postId) => {
+        let updatedPost = post.map(post => {
+            if(post.id === postId){
+                post.likeCount = post.likeCount + 1
+            }
+            return post
+        })
+        setPost(updatedPost)
+    }   
 
     return (
-        <Container className="posts-container">
+        <Col md={{span:4, offset:4}}>
             <Row>
                 {
-                    pic.length ?
+                    post.length ?
                         (
-                            pic.map(photo => (
-                                <Col md={3} key={photo.id} className="single-pic">
+                            post.map(post => (
+                                <Col md={12} key={post.id} className="single-pic">
                                     <Card>
                                         <Card.Header className="post-header">
                                             <div>
-                                                <FaUserCircle /> {photo.author}
+                                                <FaUserCircle /> {post.author}
                                             </div>
-                                            <p className="post-time">{dummyPostTime[Math.ceil(Math.random()*5)]}</p>
+                                            <p className="post-time">{post.text}</p>
                                         </Card.Header>
-                                        <Card.Img variant="top" src={photo.download_url} className="photo-img" />
+                                        <Card.Img variant="top" src={post.download_url} className="photo-img" />
                                         <Card.Body>
-                                            <p className="lead">{dummyPostText[Math.ceil(Math.random()*3)]}</p>
+                                            <p className="lead">{post.time}</p>
                                             <Row>
                                                 <Col md={{ span: '7', offset: '5' }} className="action-btn-outer">
-                                                    <Button variant="light">
+                                                    <Button variant="light" onClick={() => {toggleLikeCount(post.id)}}>
                                                         <AiOutlineLike />
                                                         {' '}
                                                         <Badge pill bg="info">
-                                                            256
+                                                            {post.likeCount}
                                                         </Badge>
                                                     </Button>
                                                     <Button variant="light">
                                                         <FaRegComment />
                                                         {' '}
                                                         <Badge pill bg="info">
-                                                            25
+                                                            {post.commentCount}
                                                         </Badge>
                                                     </Button>
                                                 </Col>
@@ -71,11 +94,11 @@ const Photo = () => {
                             </div>
                         )}
             </Row>
-        </Container>
+        </Col>
     )
 }
 
-export default Photo
+export default Post
 
 
   // useEffect(() => {

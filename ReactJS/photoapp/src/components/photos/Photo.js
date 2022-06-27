@@ -1,6 +1,7 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
 import { Container, Row, Col, Card, Spinner } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 import './Photo.css'
 
@@ -34,7 +35,7 @@ const Photo = () => {
                                         <Card.Img variant="top" src={photo.download_url} className="photo-img" />
                                         <Card.Body className="outer-btn">
                                             <a className="btn btn-dark" href={photo.url}>View Source</a>
-                                            <a className="btn btn-dark" href={photo.download_url}>View Original</a>
+                                            <Link className="btn btn-dark" to={`/photos/${photo.id}`}>View Original</Link>
                                         </Card.Body>
                                     </Card>
                                 </Col>
