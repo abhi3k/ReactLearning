@@ -1,23 +1,25 @@
 
 .single-pic {
-	margin: 10px 0;
+	margin-bottom: 20px;
+}
+
+.post-container {
+	margin-top: 10px;
 }
 
 .photo-img {
 	height: 220px;
 }
-/* 
-.post-container {
-	width: 400px;
-} */
 
 .spinner-wrapper {
 	margin: 50px 0;
 }
 
 .action-btn-outer{
-	display: flex;
-	justify-content: space-between;
+	text-align: right;
+}
+.action-btn-outer .btn{
+	margin-left: 10px;
 }
 
 .post-header{
@@ -30,4 +32,8 @@
 .post-time {
 	margin-bottom: 0px;
 	opacity: 0.6;
+}
+
+.chat-list-item {
+	text-align: left;
 }
