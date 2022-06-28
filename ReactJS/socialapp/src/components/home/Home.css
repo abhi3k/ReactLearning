@@ -34,6 +34,11 @@
 	opacity: 0.6;
 }
 
-.chat-list-item {
+.member-list-item, .chat-list-item {
 	text-align: left;
 }
+
+.member-list-item.inactive {
+	opacity: 0.6;
+}
+

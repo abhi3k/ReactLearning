@@ -16,10 +16,11 @@ const ChatList = ({ posts }) => {
                             >
                                 <div className="ms-2 me-auto">
                                     <div className="fw-bold">{post.author}</div>
-                                    Cras justo odio
+                                    <div style={{color:"grey", opacity:0.7, fontFamily:"cursive"}}>{post.chats.messageText}</div>
+                                    
                                 </div>
                                 <Badge bg="info" pill>
-                                    5
+                                    {post.chats.messageCount}
                                 </Badge>
                             </ListGroup.Item>
 

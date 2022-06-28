@@ -5,6 +5,7 @@ import axios from 'axios'
 import './Home.css'
 import dummyPostText from "../../assets/dummyPostText.json"
 import dummyPostTime from "../../assets/dummyPostTime.json"
+import dummyChatText from "../../assets/dummyChatText.json"
 import MemberList from './MemberActiveStatusList'
 import ChatList from './ChatList'
 import Post from './Post'
@@ -23,6 +24,7 @@ const Home = () => {
                     let commentCount = Math.ceil(Math.random() * 25)
                     let text = dummyPostTime[Math.ceil(Math.random() * 5)]
                     let time = dummyPostText[Math.ceil(Math.random() * 3)]
+                    // let message = dummyChatText[Math.ceil(Math.random()*5)]
                     let isLikedByCurrentUser = false
                     return {
                         ...post,
@@ -42,7 +44,10 @@ const Home = () => {
     }, [])
 
   
-    let randomChatList = post.filter(post => Number(post.id) % 5 === 0) 
+    let randomChatList = post.filter(post => Number(post.id) % 7 === 0).map(post => {
+        post.chats = dummyChatText[Math.ceil(Math.random()*5)]
+        return post
+    }) 
     return (
         <Container className="post-container">
             <Row>
