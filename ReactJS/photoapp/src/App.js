@@ -5,6 +5,7 @@ import Photo from './components/photos/Photo'
 import Nbar from './components/Navbar'
 import Contact from './components/Contact'
 import Enlarged from './components/Enlarged'
+import NotFound from './components/NotFound'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route path="/about" element={<About />}></Route>
           <Route path="/contact" element={<Contact />}></Route>
           <Route path="/photos/:id" element={<Enlarged />}></Route>
+          <Route path="*" element={<NotFound/>}/>
         </Routes>
       </div>
     </BrowserRouter>
