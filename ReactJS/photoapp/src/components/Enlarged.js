@@ -1,15 +1,25 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-// import axios from axios
+import axios from 'axios'
+import { Spinner } from 'react-bootstrap'
+import './photos/Photo.css'
 
 const Enlarged = () => {
-    const { id } = useParams
-    const [singlePhoto, setSinglePhoto ] = useState([])
+    const { id } = useParams()
+    const [singlePhoto, setSinglePhoto] = useState([])
 
-    // useEffect(() => {
-        
-    // })
+    useEffect(() => {
+        const getSinglePhoto = async () => {
+            try {
+                const res = await axios.get(`https://picsum.photos/id/${id}/info`)
+                setSinglePhoto(res.data)
+            } catch (err) {
+                console.error(err)
+            }
+        }
+        getSinglePhoto()
+    }, [id])
 
     const imgStyle = {
         height: '80vh',
@@ -18,7 +28,17 @@ const Enlarged = () => {
     }
     return (
         <>
-            <img src={"https://picsum.photos/v2/list"} alt="full-size" style={imgStyle}/>
+            {
+                Object.keys(singlePhoto).length ?
+                    (
+                        <img src={singlePhoto.download_url} alt="full-size" style={imgStyle} />
+                    ) : (
+
+                        <div className="spinner-wrapper">
+                            <Spinner animation="border" role="status"></Spinner>
+                        </div>
+                    )
+            }
         </>
     )
 }
