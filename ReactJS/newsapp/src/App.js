@@ -15,7 +15,7 @@ const App = () => {
     const fetchNews = async () => {
       try{
         const res = await axios.get("https://newsapi.org/v2/top-headlines?apiKey=8a26143a071a43bc88ee8ec4f6685126&country=in")
-        setNewsList(res.data.articles)
+        setNewsList(res.data.articles) 
       }catch(err){
         console.error(err)
       }
