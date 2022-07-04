@@ -14,7 +14,7 @@ const App = () => {
   useEffect(() => {
     const fetchNews = async () => {
       try{
-        const res = await axios.get("https://newsapi.org/v2/top-headlines?apiKey=6d36a43e2ab643af9f2a95f64b8bf2cc&country=in")
+        const res = await axios.get("https://newsapi.org/v2/top-headlines?apiKey=8a26143a071a43bc88ee8ec4f6685126&country=in")
         setNewsList(res.data.articles)
       }catch(err){
         console.error(err)
