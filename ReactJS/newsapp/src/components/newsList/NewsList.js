@@ -1,5 +1,6 @@
 import React from 'react'
-import { Container, Card, Button, Row, Col } from 'react-bootstrap'
+import { Container, Card, Row, Col } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 import './NewsList.css'
 
 const NewsList = ({ newsList }) => {
@@ -8,9 +9,9 @@ const NewsList = ({ newsList }) => {
             <Row>
                 {
                     newsList && newsList.map((singleNews, index) => (
-                        <Col md={{span: 4, offset:4}} key={index} className="single-news">
+                        <Col md={4} key={index} className="single-news">
 
-                            <Card>
+                            <Card className="text-center">
                                 <Card.Img variant="top" src={
                                         singleNews.urlToImage ? singleNews.urlToImage : "https://www.pngitem.com/pimgs/m/254-2549834_404-page-not-found-404-not-found-png.png"} alt="single-dp" />
                                 <Card.Body>
@@ -18,7 +19,7 @@ const NewsList = ({ newsList }) => {
                                     <Card.Text>
                                         {singleNews.description && singleNews.description.length > 150 ? `${singleNews.description.slice(0,120)}...` : singleNews.description}
                                     </Card.Text>
-                                    <Button variant="dark">Read More</Button>
+                                    <Link className="btn btn-dark" to={`/news/${index}`} variant="dark">Read More</Link>
                                 </Card.Body>
                             </Card>
                         </Col>
