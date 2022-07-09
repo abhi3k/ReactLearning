@@ -15,8 +15,13 @@
     - npm run start
 
     //-------------------------------->>
-
+    
     App.js is base component
+    
+    //-------------------------------->>
+
+    -> Mounting Life Cycle Order :
+        - Constructor, Render, Mount
 
 */
 
