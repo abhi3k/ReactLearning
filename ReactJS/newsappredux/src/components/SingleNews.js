@@ -2,9 +2,11 @@ import React from 'react'
 import './newsList/NewsList.css'
 import { useParams } from 'react-router-dom'
 import { Container, Row, Col, Card, Button } from 'react-bootstrap'
+import { useSelector } from 'react-redux'
 
-const SingleNews = ({ newsList }) => {
+const SingleNews = () => {
     const { id } = useParams()
+    const newsList = useSelector(state => state.news.newsList)
     let singleNews = newsList && id && newsList[id]
     return (
         <>
@@ -15,7 +17,7 @@ const SingleNews = ({ newsList }) => {
                         (
                             <Col md={{ span: 4, offset: 4 }} className="single-news">
 
-                                <Card>
+                                <Card className="text-center">
                                     <Card.Img variant="top" src={
                                         singleNews.urlToImage ? singleNews.urlToImage : "https://www.pngitem.com/pimgs/m/254-2549834_404-page-not-found-404-not-found-png.png"} alt="single-dp" />
                                     <Card.Body>
