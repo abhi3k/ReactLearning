@@ -1,0 +1,11 @@
+.login-form {
+    /* border: 1px solid black; */
+    margin: 7rem auto;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+.login-input { 
+    margin: 20px;
+}
